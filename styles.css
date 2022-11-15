@@ -6,6 +6,7 @@
 body{
     padding: 0;
     margin: 0;
+    display: flex;
 }
 
 .left-section{
@@ -14,6 +15,8 @@ body{
     background: url(background.avif) no-repeat;
     display: flex;
     justify-content: center;
+    flex: 1 1 auto;
+    flex-wrap: wrap;
 }
 
 .logo{
@@ -24,6 +27,8 @@ body{
     width: 100%;
     height: 30%;
     margin-top: 120px;
+    flex: 1 1 auto;
+    flex-wrap: wrap;
 }
 .logo-img{
     height:200px;
@@ -32,4 +37,27 @@ body{
     font-family: "norse-bold";
     font-size: 200px;
     color: white;
+}
+
+.form-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 30px;
+}
+
+.name,
+.contact,
+.passwords{
+    display: flex;
+    gap: 70px;
+}
+.first-name,
+.last-name,
+.email,
+.phone,
+.password,
+.password-confirm{
+    display: flex;
+    flex-direction: column;
 }
