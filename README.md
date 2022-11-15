@@ -1,1 +1,1 @@
-# sign-up-form
+The aim of this project is to create a functioning form with client-side validation
