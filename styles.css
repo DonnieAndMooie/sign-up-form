@@ -104,3 +104,45 @@ a{
     font-family: Helvetica, Arial, sans-serif;
     font-size: 16px;
 }
+
+
+input:focus{
+    outline: 2px solid blue;
+}
+
+input{
+    border: 2px solid #E5E7EB;
+}
+
+#password:invalid,
+#password-confirm:invalid,
+#email:invalid,
+#phone:invalid,
+.password #password.error,
+.password #password-confirm.error{
+    border: 2px solid red;
+    outline: none;
+}
+
+.error-message{
+    color:red;
+    font-size: 18px;
+}
+
+#email:empty,
+#phone:empty,
+#password:empty,
+#password-confirm:empty{
+    border: 2px solid #E5E7EB;
+}
+
+
+#email:valid,
+#phone:valid,
+#password:valid,
+#password.match,
+#password-confirm.match{
+    border: 2px solid green;
+    outline: none
+}
+

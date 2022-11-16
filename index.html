@@ -26,38 +26,71 @@
             <div class="name">
                 <div class="first-name">
                     <label for="first-name">FIRST NAME</label>
-                    <input type="text" id="first-name" name="first-name" placeholder="e.g. John">
+                    <input type="text" id="first-name" name="first-name" placeholder="e.g. John" required>
                 </div>
                 <div class="last-name">
                     <label for="last-name">LAST NAME</label>
-                    <input type="text" id="last-name" name="last-name" placeholder="e.g. Smith">
+                    <input type="text" id="last-name" name="last-name" placeholder="e.g. Smith" required>
                 </div>
             </div>
             <div class="contact">
                 <div class="email">
                     <label for="email">EMAIL</label>
-                    <input type="email" id="email" name="email" placeholder="e.g. john.smith@email.com">
+                    <input type="email" id="email" name="email" placeholder="e.g. john.smith@email.com" required>
                 </div>
                 <div class="phone">
                     <label for="phone">PHONE NUMBER</label>
-                    <input type="tel" id="phone" name="phone-number" placeholder="e.g. 07462757373">
+                    <input type="tel" id="phone" name="phone-number" placeholder="e.g. 07462757373"
+                    pattern="(^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$)" required/>
                 </div>
             </div>
             <div class="passwords">
                 <div class="password">
                     <label for="password">PASSWORD</label>
-                    <input type="password" id="password" name="password">
+                    <input type="password" id="password" name="password"
+                    pattern="(^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$)" required>
                 </div>
                 <div class="password-confirm">
                     <label for="password-confirm">CONFIRM PASSWORD</label>
-                    <input type="password" id="password-confirm" name="password-confirm">
+                    <input type="password" id="password-confirm" name="password-confirm"
+                    pattern="(^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$)" required>
                 </div>
             </div>
             <div class="button">
-                <button type="submit">Create Account</button>
+                <button class="submit" type="submit">Create Account</button>
             </div>
         </form>
         <div class="login">Already have an account? <a href="">Log in</a></div>
     </div>
 </body>
+<script>
+    const btn = document.querySelector("button.submit");
+    const password = document.querySelector("#password");
+    const passwordConfirm = document.querySelector("#password-confirm");
+    const passwordDiv = document.querySelector("div.password")
+    const error = document.createElement("div");
+    error.classList.add("error-message");
+    error.textContent = "Your passwords do not match"
+    document.addEventListener("keyup", ()=>{
+        if (password.value !== passwordConfirm.value){
+            password.classList.add("error");
+            passwordConfirm.classList.add("error");
+            passwordDiv.appendChild(error)
+            password.classList.remove("match")
+            passwordConfirm.classList.remove("match")
+            btn.type="button"
+            
+        }
+        else{
+            password.classList.remove("error");
+            passwordConfirm.classList.remove("error");
+            passwordDiv.removeChild(error)
+            password.classList.add("match")
+            passwordConfirm.classList.add("match")
+            btn.type="submit"
+        }
+    }
+
+    )
+</script>
 </html>
